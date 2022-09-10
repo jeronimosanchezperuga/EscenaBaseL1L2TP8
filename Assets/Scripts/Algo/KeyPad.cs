@@ -21,9 +21,16 @@ public class KeyPad : MonoBehaviour
     private void OnMouseDown()
     {
         name = gameObject.name;
-        KeyPadPassword.passwordInput += name;
-        Debug.Log("Presionaste el " + name);
 
+        if (name == "REINICIAR")
+        {
+            KeyPadPassword.passwordInput = "";
+        }
+        else
+        {
+            KeyPadPassword.passwordInput += name;
+        }
+        
     }
 
 }

@@ -18,16 +18,11 @@ public class KeyPadPassword : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (passwordInput != "")
-        {
-            Debug.Log(passwordInput);
-        }
-        
-
         if (passwordInput == password)
         {
             Debug.Log("Escapaste");
             Destroy(puerta);
+            gameObject.SetActive(false);
         }
     }
 }
