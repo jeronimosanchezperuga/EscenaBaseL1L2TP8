@@ -11,7 +11,7 @@ public class TxtContra : MonoBehaviour
     void Start()
     {
         contra = KeyPadPassword.password;
-        GetComponent<TextMeshPro>().text = "CONTRA : 123 " + contra;
+        GetComponent<TextMeshPro>().text = "CONTRA : " + contra;
         //No se porque pero ignora la variable "contra" cuando la intento poner en el texto del TextMeshPro
     }
     
