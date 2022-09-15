@@ -10,6 +10,7 @@ public class DialogeManager : MonoBehaviour
     [SerializeField] string[] frasesDialogo;
     [SerializeField] int posicionFrase;
     [SerializeField] bool hasTalked;
+    public GameObject pressE, canvasWinner;
 
     // Start is called before the first frame update
     void Start()
@@ -39,9 +40,18 @@ public class DialogeManager : MonoBehaviour
                 textoDelDialogo.text = "Hola, soy Jero y estoy encerrado, necesito que me ayudes a salir de aquí";
             }
 
-            else
+            else if (hasTalked && !KeyPadPassword.hasEscaped)
             {
+                pressE.SetActive(false);
                 textoDelDialogo.text = "Ya hable con vos, anda a buscar";
+            }
+
+            else if (hasTalked && KeyPadPassword.hasEscaped)
+            {
+                pressE.SetActive(false);
+                textoDelDialogo.text = "Gracias por ayudarme a escapar, ahora puedo volver a mi casa";
+                StartCoroutine(waitForCooldown());
+
             }
         }
     }
@@ -69,5 +79,12 @@ public class DialogeManager : MonoBehaviour
             hasTalked = true;
         }
         
+    }
+
+    IEnumerator waitForCooldown() //Cooldown para esperar un segundo al sacarme vida
+    {
+        yield return new WaitForSeconds(3);
+        canvasWinner.SetActive(true);
+        yield return new WaitForSeconds(3);
     }
 }

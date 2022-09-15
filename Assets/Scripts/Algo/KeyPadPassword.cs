@@ -6,7 +6,8 @@ public class KeyPadPassword : MonoBehaviour
 {
     public static string passwordInput, password;
     public string ingresaContra;
-    public GameObject puerta;
+    public GameObject puerta, puertaAbierta;
+    public static bool hasEscaped;
     
 
     // Start is called before the first frame update
@@ -22,7 +23,9 @@ public class KeyPadPassword : MonoBehaviour
         {
             Debug.Log("Escapaste");
             Destroy(puerta);
-            gameObject.SetActive(false);
+            puertaAbierta.SetActive(true);
+            hasEscaped = true;
+            
         }
     }
 }

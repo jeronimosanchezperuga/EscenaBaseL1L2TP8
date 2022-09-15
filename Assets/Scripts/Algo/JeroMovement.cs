@@ -28,6 +28,12 @@ public class JeroMovement : MonoBehaviour
             StartCoroutine(waitForCooldonw2());
             transform.Translate(Vector3.up * Time.deltaTime * 0.5f);
         }
+        
+        if (KeyPadPassword.hasEscaped)
+        {
+            transform.position = new Vector3(-1.44f, 1f, 0.48f);
+        }
+
     }
     IEnumerator waitForCooldown() //Cooldown para esperar un segundo al sacarme vida
     {
