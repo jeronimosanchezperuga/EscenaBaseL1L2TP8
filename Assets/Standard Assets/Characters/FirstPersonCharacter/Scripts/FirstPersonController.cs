@@ -245,6 +245,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             Rigidbody body = hit.collider.attachedRigidbody;
 
+            Debug.Log("Controller collider hit" + hit.gameObject);
             //dont move the rigidbody if the character is on top of it
             if (m_CollisionFlags == CollisionFlags.Below)
             {
@@ -255,7 +256,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 return;
             }
-            //Debug.Log(hit.collider.gameObject);
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
 
@@ -264,6 +264,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             GameObject currentHit = hit.gameObject;
             //detectar cuando el gameobject tocado cambia (a otro o a null)
 
+        }
+        void OnTriggerEnter()
+        {
+            Debug.Log("hit");
         }
     }
 }
